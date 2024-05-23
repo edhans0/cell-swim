@@ -103,8 +103,11 @@ for step in range(maxtp):
 
         #apply repulsion if outside or close to outside the container
 
-        #Active Motor (random on/off)
+        #Active Motor (random switching on/off/direction)
 
+        #check if the motor has been active or inactive for t_on/t_off seconds
+        #if yes then reroll to determine switch
+        #random direction
         if on_state[i] == 0:
             if counter[i] == t_off/dt:
                 on_state[i] =  1 #switch
@@ -122,39 +125,38 @@ for step in range(maxtp):
                 n_hat = on_state[i] * ruv[i]
                 counter[i] = 0 #reset the counter
 
+            #increase the counter
             else:
                 n_hat = on_state[i] * ruv[i]
-                counter[i] = counter[i] + 1 #increase the counter
-        #check if it has been t_on or t_off seconds
-        #if yes then reroll to determine switch
-        #random direction
-
-        #Wall Repulsion (bouncing)
-        rwall = np.linalg.norm(heads[i])
-        if rwall >= L-dL:
-            #on_state[i] = 0
-            #n_hat = np.zeros(3) #turn off motornear the wall
-            #Uwall = 5 * rwall**2/dL**2
-            #Fwall = 5 * 2 * rwall / dL**2
-            overlap = rwall - (L - dL)
-            Fwall = -100*overlap*(heads[i]/rwall)/(dL**2)
-            Fnet.append(Fwall)
-            #print(i,Fwall)
-            #print(i,Fnet)
+                counter[i] = counter[i] + 1
+        ##If particle is currently in a cluster, turn off the motor
+        #if r0<r<r1:
+            #n_hat = 0
         #Vector Sum
         Fnet = sum(Fnet)
         a = Fnet/mass #update acceleration
         dv = a*dt #acceleration * time
-#Update the Velocity
+        #Update the Velocity
         v[i] = (v[i] + dv + (n_hat*vm))
-        #Displacement
+        #Displacement vector
         dr = v[i] * dt
         #Position Update
-        heads[i] = heads[i] + dr
+        #checks if particle will remain inside sphere. If not, reflect
+        newpos = heads[i]+dr
+        if np.linalg.norm(newpos) >= L-dL:
+            #normal vector at wall collision point
+            normal_vector = heads[i]/np.linalg.norm(heads[i])
+            #reflect the velocity
+            v[i] = v[i] - (2 * np.dot(v[i],normal_vector) * normal_vector)
+            #updating the position, putting the particle right on the wall
+            heads[i] = normal_vector * (L-dL)
+
+        else:
+            heads[i] = newpos
+        #for checking only
         if np.linalg.norm(heads[i]) > L:
-	        print('Out of bounds!')
-	        sys.exit()
-                #sys.exit()
+            print(i, np.linalg.norm(heads[i]), "Out of bounds!")
+        #output
         print("Ar",heads[i][0],heads[i][1],heads[i][2])
         #print(i, "n_hat=",n_hat, "velocity=",v[i])
         #print(bool(on_state[i]), counter[i], np.linalg.norm(v[i]))
