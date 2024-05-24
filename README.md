@@ -8,3 +8,7 @@ Simulation of swimming cell motility and clumping using the ff.:
 3. Distance-based clumping potential
 4. Randomly on or off active motor to simulate swimming.
 5. Variable particle-wall interactions. (sticky wall, bouncy wall, etc.)
+
+
+How to run:
+python motorhead-reflect.py n_cells > output.xyz
