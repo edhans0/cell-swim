@@ -56,8 +56,8 @@ ruv = np.zeros((n,3))
 #random angles
 theta = 2 * np.pi * np.random.rand(n) #azimuthal angle (rotation z-axis)
 phi = np.arccos(2*np.random.rand(n) - 1)#polar angle: inclination from positive z-axis
-#random distance from centre:
-R = np.random.rand(n) * (L - dL)
+#random distance up to 25 from centre:
+R = np.random.rand(n) * L * 0.5
 #converting spherical coordinates
 heads = np.zeros((n,3))
 for i in range(n):
@@ -65,14 +65,15 @@ for i in range(n):
     y = R[i] * np.sin(phi[i]) * np.sin(theta[i])
     z = R[i] * np.cos(phi[i])
     heads[i] = heads[i] + np.array([x,y,z])
-#
+#Initializing velocities to 0
+v = np.zeros((n,3))
+
 print(n, "\n")
 for i in heads:
 	print("Ar",i[0],i[1],i[2])
 
 for step in range(maxtp):
     #time = dt*step
-    v = np.zeros((n,3))
     print(n, "\n")
     for i in range(n):
         Fnet = [np.zeros(3)] #individual contributions (vectors)
@@ -130,8 +131,8 @@ for step in range(maxtp):
                 n_hat = on_state[i] * ruv[i]
                 counter[i] = counter[i] + 1
         ##If particle is currently in a cluster, turn off the motor
-        #if r0<r<r1:
-            #n_hat = 0
+        if r0<r<r1:
+            n_hat = 0
         #Vector Sum
         Fnet = sum(Fnet)
         a = Fnet/mass #update acceleration
