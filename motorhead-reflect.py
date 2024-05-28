@@ -7,15 +7,15 @@ import numpy as np
 import sys
 #Run Parameters
 n = int(sys.argv[1]) #number of cells
-maxtp = 10000
-dt = 0.1 #size of time step in s
+maxtp = 3000
+dt = 0.01 #size of time step in s
 #total run time = dt * maxtp
 mass = 1.
 aa = 2.0
 b = 1.1 #head-tail distance
 #Spherical Simulation Space
 L = 50.0 #radius
-dL = 0.1*L #thickness (distance from edge at which particles bounce off)
+dL = 0.01*L #thickness (distance from edge at which particles bounce off)
 #awall = 1/((L+dL)**4 - L**4) #wall bouncing force
 
 eta = 1.0 #viscosity
@@ -28,9 +28,9 @@ co = (2.0/beta/gamma*dt)**0.5
 cutoff =10 #determine if potential is turned on or off
 
 #Lennard-Jones Parameters
-eps = 1.0
-sigma = 2.0
-rstar = sigma*1.12245295 #LJ cutoff
+eps = 0.1
+rstar = 3 #LJ cutoff used in Qi2013
+sigma = rstar/1.12245295
 
 #Clumping Force Parameters
 rm = 8.0 #peak of potential well
@@ -88,15 +88,19 @@ for step in range(maxtp):
                 if r <= rstar:
                     six = (sigma/r)**6
                     twelve = six**2
-                    V_LJ = 4*eps*(twelve-six) #potential energy (scalar)
+                    V_LJ = eps + 4*eps*(twelve-six) #potential energy (scalar). From Qi2013
                     #for a potential V(x,y,z), Fx = V(x)/(x/sqrt(x2+y2+z2)
-                    F_LJ = [48*(V_LJ*r/R)] #force (vector)
+                    F_LJ = -48*(V_LJ*r/R) #force (vector)
                     Fnet.append(F_LJ)
+                else:
+                    F_LJ = np.zeros(3)
                 #Clumping Force
                 if r0 < r < r1:
                     rclump = R - rm
                     Fclump = 4*c2*rclump**3 - 2*c1*rclump**2
                     Fnet.append(Fclump)
+                else:
+                    Fclump = np.zeros(3)
         #Stochastic Force
         Fsto = co*0.9*(2*np.random.normal(size=3)-1)
         Fnet.append(Fsto)
@@ -144,7 +148,7 @@ for step in range(maxtp):
         #Position Update
         #checks if particle will remain inside sphere. If not, reflect
         newpos = heads[i]+dr
-        if np.linalg.norm(newpos) >= L-dL:
+        if np.linalg.norm(newpos) > L:
             #normal vector at wall collision point
             normal_vector = heads[i]/np.linalg.norm(heads[i])
             #reflect the velocity
@@ -158,6 +162,10 @@ for step in range(maxtp):
         if np.linalg.norm(heads[i]) > L:
             print(i, np.linalg.norm(heads[i]), "Out of bounds!")
         #output
+        #print(i, "Lennard-Jones ", np.linalg.norm(F_LJ))
+        #print(i, "Clumping ", np.linalg.norm(Fclump))
+        #print(i, "Brownian ", np.linalg.norm(Fsto))
+        #print("    accel=",np.linalg.norm(a))
         print("Ar",heads[i][0],heads[i][1],heads[i][2])
-        #print(i, "n_hat=",n_hat, "velocity=",v[i])
-        #print(bool(on_state[i]), counter[i], np.linalg.norm(v[i]))
+        #print(i, " speed=",np.linalg.norm(v[i]))
+       # #prin t(bool(on_state[i]), counter[i], np.linalg.norm(v[i]))

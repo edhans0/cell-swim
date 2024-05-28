@@ -1,0 +1,186 @@
+[?1049h[?1h=[H[2J[?2004h[?2026$p[0m[4:3mP$qm\[?u[c[?25h[?25l[0m[H[2J[1 q[?1002h[?1006h[?25h[?25l[23B[91m[48;5;236mE325: ATTENTION[0m[38;5;231m[48;5;236m[K[H[23M
+Found a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"                               
+          owned by: twtrad   dated: Tue May 28 16:48:36 2024                    
+         file name: ~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py  
+          modified: YES                                                         
+         user name: twtrad   host name: Archer                                  
+        process ID: 109263                                                      
+While opening file "motorhead-reflect.py"                                       
+             dated: Tue May 28 15:57:29 2024                                    
+                                                                                
+(1) Another program may be editing the same file.  If this is the case,         
+    be careful not to end up with two different instances of the same           
+    file when making changes.  Quit, or continue with caution.                  
+(2) An edit session for this file crashed.                                      
+    If this is the case, use ":recover" or "vim -r motorhead-reflect.py"        
+    to recover the changes (see ":help recovery").                              
+    If you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"                                                                            
+    to avoid this message.                                                      
+                                                                                
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[0m[38;5;231m[48;5;236m                                                                      [2 q[?1002l[?1006l[H[0m[91m[48;5;236mE325: ATTENTION[0m[38;5;231m[48;5;236m[K
+Found a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"[K
+          owned by: twtrad   dated: Tue May 28 16:48:36 2024[K
+         file name: ~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py[K
+          modified: YES[K
+         user name: twtrad   host name: Archer[K
+        process ID: 109263[K
+While opening file "motorhead-reflect.py"[K
+             dated: Tue May 28 15:57:29 2024[K
+[K
+(1) Another program may be editing the same file.  If this is the case,[K
+    be careful not to end up with two different instances of the same[K
+    file when making changes.  Quit, or continue with caution.[K
+(2) An edit session for this file crashed.[K
+    If this is the case, use ":recover" or "vim -r motorhead-reflect.py"[K
+    to recover the changes (see ":help recovery").[K
+    If you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"[K
+    to avoid this message.[K
+[K
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[0m[38;5;231m[48;5;236m[K[?25h[?25l[?1004h[?25h[?25l[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit [H[0m[38;5;231m[48;5;236m  [H[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit   [24;65H[?25h[?25l[0m[38;5;231m[48;5;236m[H[15X
+[K
+[49X[4;11H[50X[5;10H[69X[6;11H[13X[7;10H[37X[8;9H[18X
+[41X[10;14H[31X
+
+[71X[13;5H[65X
+[58X
+[42X[16;5H[68X
+[46X
+[K
+[K
+    
+[22X
+
+[K
+[64X[H[0m[91m[48;5;236mE325: ATTENTION
+[0m[38;5;231m[48;5;236mFound a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"[4;11Howned by:[Ctwtrad[3Cdated:[CTue May 28 16:48:36 2024[5;10Hfile name:[C~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py[6;11Hmodified:[CYES[7;10Huser name:[Ctwtrad[3Chost name:[CArcher[8;9Hprocess ID:[C109263
+While opening file "motorhead-reflect.py"[10;14Hdated:[CTue May 28 15:57:29 2024
+
+(1) Another program may be editing the same file.  If this is the case,[13;5Hbe careful not to end up with two different instances of the same[14;5Hfile when making changes.  Quit, or continue with caution.
+(2) An edit session for this file crashed.[16;5HIf this is the case, use ":recover" or "vim -r[Cmotorhead-reflect.py"[17;5Hto recover the changes (see ":help recovery").[18;5HIf you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"
+to avoid this message.
+
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[2 q[?25h[?25l[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit [H[0m[38;5;231m[48;5;236m  [H[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit   [24;65H[?25h[?25l[0m[38;5;231m[48;5;236m[H[15X
+[K
+[49X[4;11H[50X[5;10H[69X[6;11H[13X[7;10H[37X[8;9H[18X
+[41X[10;14H[31X
+
+[71X[13;5H[65X
+[58X
+[42X[16;5H[68X
+[46X
+[K
+[K
+    
+[22X
+
+[K
+[64X[H[0m[91m[48;5;236mE325: ATTENTION
+[0m[38;5;231m[48;5;236mFound a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"[4;11Howned by:[Ctwtrad[3Cdated:[CTue May 28 16:48:36 2024[5;10Hfile name:[C~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py[6;11Hmodified:[CYES[7;10Huser name:[Ctwtrad[3Chost name:[CArcher[8;9Hprocess ID:[C109263
+While opening file "motorhead-reflect.py"[10;14Hdated:[CTue May 28 15:57:29 2024
+
+(1) Another program may be editing the same file.  If this is the case,[13;5Hbe careful not to end up with two different instances of the same[14;5Hfile when making changes.  Quit, or continue with caution.
+(2) An edit session for this file crashed.[16;5HIf this is the case, use ":recover" or "vim -r[Cmotorhead-reflect.py"[17;5Hto recover the changes (see ":help recovery").[18;5HIf you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"
+to avoid this message.
+
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[2 q[?25h[?25l[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit [H[0m[38;5;231m[48;5;236m  [H[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit   [24;65H[?25h[?25l[0m[38;5;231m[48;5;236m[H[15X
+[K
+[49X[4;11H[50X[5;10H[69X[6;11H[13X[7;10H[37X[8;9H[18X
+[41X[10;14H[31X
+
+[71X[13;5H[65X
+[58X
+[42X[16;5H[68X
+[46X
+[K
+[K
+    
+[22X
+
+[K
+[64X[H[0m[91m[48;5;236mE325: ATTENTION
+[0m[38;5;231m[48;5;236mFound a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"[4;11Howned by:[Ctwtrad[3Cdated:[CTue May 28 16:48:36 2024[5;10Hfile name:[C~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py[6;11Hmodified:[CYES[7;10Huser name:[Ctwtrad[3Chost name:[CArcher[8;9Hprocess ID:[C109263
+While opening file "motorhead-reflect.py"[10;14Hdated:[CTue May 28 15:57:29 2024
+
+(1) Another program may be editing the same file.  If this is the case,[13;5Hbe careful not to end up with two different instances of the same[14;5Hfile when making changes.  Quit, or continue with caution.
+(2) An edit session for this file crashed.[16;5HIf this is the case, use ":recover" or "vim -r[Cmotorhead-reflect.py"[17;5Hto recover the changes (see ":help recovery").[18;5HIf you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"
+to avoid this message.
+
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[2 q[?25h[?25l SPACE/d/j: screen/page/line down, b/u/k: up, q: quit [?25h[?25l[24;65H[?25h[?25l[0m[38;5;231m[48;5;236m[H[15X
+[K
+[49X[4;11H[50X[5;10H[69X[6;11H[13X[7;10H[37X[8;9H[18X
+[41X[10;14H[31X
+
+[71X[13;5H[65X
+[58X
+[42X[16;5H[68X
+[46X
+[K
+[K
+    
+[22X
+
+[K
+[64X[H[0m[91m[48;5;236mE325: ATTENTION
+[0m[38;5;231m[48;5;236mFound a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"[4;11Howned by:[Ctwtrad[3Cdated:[CTue May 28 16:48:36 2024[5;10Hfile name:[C~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py[6;11Hmodified:[CYES[7;10Huser name:[Ctwtrad[3Chost name:[CArcher[8;9Hprocess ID:[C109263
+While opening file "motorhead-reflect.py"[10;14Hdated:[CTue May 28 15:57:29 2024
+
+(1) Another program may be editing the same file.  If this is the case,[13;5Hbe careful not to end up with two different instances of the same[14;5Hfile when making changes.  Quit, or continue with caution.
+(2) An edit session for this file crashed.[16;5HIf this is the case, use ":recover" or "vim -r[Cmotorhead-reflect.py"[17;5Hto recover the changes (see ":help recovery").[18;5HIf you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"
+to avoid this message.
+
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[2 q[H[0m[91m[48;5;236mE325: ATTENTIO  N[2;1H[0m[38;5;231m[48;5;236mFound a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp  "[4;11Howned by: twtrad   dated: Tue May 28 16:48:36 202  4[5;10Hfile name: ~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.p  y[6;11Hmodified: YE  S[7;10Huser name: twtrad   host name: Arche  r[8;9Hprocess ID: 10926  3[9;1HWhile opening file "motorhead-reflect.py  "[10;14Hdated: Tue May 28 15:57:29 202  4[12;1H(1) Another program may be editing the same file.  If this is the case  ,[13;5Hbe careful not to end up with two different instances of the sam  e[14;5Hfile when making changes.  Quit, or continue with caution  .[15;1H(2) An edit session for this file crashed  .[16;5HIf this is the case, use ":recover" or "vim -r motorhead-reflect.py  "[17;5Hto recover the changes (see ":help recovery")  .[18;5HIf you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp  "[21;5Hto avoid this message  .[23;1H[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[0m[38;5;231m[48;5;236m                                                        [24;11H[?25h[?25l[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit [H[0m[38;5;231m[48;5;236m  [H[24;11H[0m[96m[48;5;236m SPACE/d/j: screen/page/line down, b/u/k: up, q: quit   [24;65H[?25h[?25l[0m[38;5;231m[48;5;236m[H[15X
+[K
+[49X[4;11H[50X[5;10H[69X[6;11H[13X[7;10H[37X[8;9H[18X
+[41X[10;14H[31X
+
+[71X[13;5H[65X
+[58X
+[42X[16;5H[68X
+[46X
+[K
+[K
+    
+[22X
+
+[K
+[64X[H[0m[91m[48;5;236mE325: ATTENTION
+[0m[38;5;231m[48;5;236mFound a swap file by the name "~/.local/state/nvim/swap//%home%earl-larbs%Docume
+nts%goodvibes%cell-swim%motorhead-reflect.py.swp"[4;11Howned by:[Ctwtrad[3Cdated:[CTue May 28 16:48:36 2024[5;10Hfile name:[C~twtrad/Documents/goodvibes/cell-swim/motorhead-reflect.py[6;11Hmodified:[CYES[7;10Huser name:[Ctwtrad[3Chost name:[CArcher[8;9Hprocess ID:[C109263
+While opening file "motorhead-reflect.py"[10;14Hdated:[CTue May 28 15:57:29 2024
+
+(1) Another program may be editing the same file.  If this is the case,[13;5Hbe careful not to end up with two different instances of the same[14;5Hfile when making changes.  Quit, or continue with caution.
+(2) An edit session for this file crashed.[16;5HIf this is the case, use ":recover" or "vim -r[Cmotorhead-reflect.py"[17;5Hto recover the changes (see ":help recovery").[18;5HIf you did this already, delete the swap file "/home/earl-larbs/.local/state
+/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-swim%motorhead-reflect.py.
+swp"
+to avoid this message.
+
+[0m[96m[48;5;236mSwap file "~/.local/state/nvim/swap//%home%earl-larbs%Documents%goodvibes%cell-s
+-- More --[2 q[?25h
