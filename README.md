@@ -11,5 +11,4 @@ Simulation of swimming cell motility and clumping using the ff.:
 
 
 How to run:
-
-python motorhead-reflect.py n_cells > output.xyz
+python clumphead.py outfile.xyz
