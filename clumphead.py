@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #Cell Swim Simulation Code
-#Version 0.1: Point Particles with Brownian Motion and Lennard-Jones
+#Version 0.2: Point Particles with Brownian Motion, Lennard-Jones, and Clumping Potential
 
 #imports
 import numpy as np
@@ -32,9 +32,20 @@ def lj(r):
         force = np.zeros(3)
     return(force)
 
+#Clumping Force
+def clump(r):
+    d = np.linalg.norm(r)
+    if r0 < d < r1:
+        rclump = r - rm
+        force = rclump**2 * (4*c2*rclump - 2*c1)
+    else:
+        force = np.zeros(3)
+    return(force)
+
+
 #Run Parameters
 n = 10 #number of cells
-maxtp = 1000000
+maxtp = 1000
 dt = 0.01 #size of time step in s
 #total run time = dt * maxtp
 mass = 1.
@@ -124,7 +135,9 @@ for step in range(maxtp):
             if i != j:
                 r = heads[i]-heads[j]
                 F_LJ = lj(r)
+                Fclump = clump(r)
                 Fnet.append(F_LJ)
+                Fnet.append(Fclump)
         #Clumping Force
         #Vector Sum
         Fnet = sum(Fnet)
@@ -156,7 +169,7 @@ for step in range(maxtp):
         Fsto = np.linalg.norm(Fsto)
         #print("    accel=",np.linalg.norm(a))
         F_LJ = np.linalg.norm(F_LJ)
-        Fclump = 0
+        Fclump = np.linalg.norm(Fclump)
         df.loc[len(df)] = ["Ar",heads[i][0],heads[i][1],heads[i][2],Fsto,F_LJ,Fclump,np.linalg.norm(a),np.linalg.norm(v[i]),np.linalg.norm(dr),np.linalg.norm(heads[i])]
     snap_add(outfile,df)
         #print(i, " speed=",np.linalg.norm(v[i]))
