@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #Cell Swim Simulation Code
-#Version 0.1: Point Particles with Brownian Motion and Lennard-Jones
+#Version 0.1.1: Point Particles with Brownian Motion and Lennard-Jones (vectorized)
 
 #imports
 import numpy as np
@@ -17,24 +17,35 @@ def write_n_time(outfile, n, time):
         f.write(f"{n}\n")
         f.write(f"time,{time}\n")
 
-#For appending XYZ snapshot dataframe
+#For appending XYZ snapshot dataframe 
 def snap_add(outfile, df):
     df.to_csv(outfile, mode='a', sep=' ', header=False, index=False)
 
 #Force due to LJ potential
 def lj(r):
     d = np.linalg.norm(r)
-    if d >= rstar:
+    if d <= sigma*2.5:
         six = (sigma/d)**6
         twelve = six**2
-        force = 48 * eps * 1/r * (twelve - six/2)
+        force = -48 * eps * 1/r * (twelve - six/2)
     else:
         force = np.zeros(3)
     return(force)
-
+#Vectorized LJ calculation
+#takes an (n,3) matrix
+def lj_vectorized(positions):
+    diff = positions[:, np.newaxis, :] - positions[np.newaxis, :, :] #(n,n,3) vector difference rj(xyz)-ri(xyz)
+    rsq = np.sum(diff**2, axis=-1)
+    #fills diagonals with infinity so that the LJ due to self interaction is zero. also avoids dividing by zero
+    np.fill_diagonal(rsq, np.inf) 
+    six = (sigma/rsq)*6
+    twelve = six**2
+    fmag = 48 * eps * (twelve - six)/rsq
+    forces = np.sum(fmag[:,:,np.newaxis]*diff, axis=1)
+    return forces
 #Run Parameters
 n = 10 #number of cells
-maxtp = 1000000
+maxtp = 10000
 dt = 0.01 #size of time step in s
 #total run time = dt * maxtp
 mass = 1.
@@ -46,18 +57,18 @@ dL = 0.01*L #thickness (distance from edge at which particles bounce off)
 #awall = 1/((L+dL)**4 - L**4) #wall bouncing force
 
 eta = 1.0 #viscosity
-pi = np.pi
+pi = np.pi #pi
 gamma = 6.0*pi*eta*aa
-beta = 1.0 #temperature control 1/kBT
+beta = 1.0 #temperature contral 1/kBT
 #constant to multiply random number for stochastic force
 co = (2.0/beta/gamma*dt)**0.5
 
 cutoff =10 #determine if potential is turned on or off
 
 #Lennard-Jones Parameters
-eps = 0.01
-rstar = 3 #LJ cutoff used in Qi2013
-sigma = rstar/1.12245295
+eps = 1
+rstar = 1.12245295
+sigma = 1 
 
 #Clumping Force Parameters
 rm = 8.0 #peak of potential well
@@ -80,8 +91,11 @@ on_state = np.zeros(n) #stores the on or off state of motor
 ruv = np.zeros((n,3))
 #Initial positions and velocities of each cell
 #assigns random positions to each cell within the sphere
+heads = np.random.normal(size=(n,3))
+heads = heads/np.linalg.norm(heads)
+heads = L*heads
 #random angles
-theta = 2 * np.pi * np.random.rand(n) #azimuthal angle (rotation z-axis)
+theta = 2 * np.pi *(2*np.random.rand(n) - 1) #azimuthal angle (rotation z-axis)
 phi = np.arccos(2*np.random.rand(n) - 1)#polar angle: inclination from positive z-axis
 #random distance up to 25 from centre:
 R = np.random.rand(n) * L * 0.5
@@ -114,17 +128,20 @@ for step in range(maxtp):
     #writing XYZ file headers
     write_n_time(outfile,n,t)
     df = pd.DataFrame(columns=cols)
+    LJ = lj_vectorized(heads)
     for i in range(n):
         Fnet = [np.zeros(3)] #individual contributions (vectors)
         #Stochastic Force
-        Fsto = co*0.9*(2*np.random.normal(size=3)-1)
+        Fsto = co*(2*np.random.normal(size=3)-1)
         Fnet.append(Fsto)
         #Lennard Jones
-        for j in range(n):
-            if i != j:
-                r = heads[i]-heads[j]
-                F_LJ = lj(r)
-                Fnet.append(F_LJ)
+        F_LJ = LJ[i]
+        Fnet.append(LJ[i])
+#        for j in range(n):
+#            if i != j:
+#                r = heads[j]-heads[i]
+#                F_LJ = lj(r)
+#                Fnet.append(F_LJ)
         #Clumping Force
         #Vector Sum
         Fnet = sum(Fnet)
